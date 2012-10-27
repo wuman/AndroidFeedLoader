@@ -164,7 +164,7 @@
                     <version>${github-site-upload.version}</version>
                     <configuration>
                         <message>Creating site for ${project.version}</message>
-                        <outputDirectory>src/site</outputDirectory>
+                        <outputDirectory>library/src/site</outputDirectory>
                     </configuration>
                     <executions>
                         <execution>
@@ -189,6 +189,16 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+            </plugin>
+        </plugins>
     </build>
 
     <name>AndroidFeedLoader - Parent</name>
