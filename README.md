@@ -19,8 +19,8 @@ There are two ways to include AndroidFeedLoader in your projects:
 
         <dependency>
             <groupId>com.wu-man</groupId>
-            <artifactId>androidfeedloader</artifactId>
-            <version>0.1-SNAPSHOT</version>
+            <artifactId>androidfeedloader-library</artifactId>
+            <version>0.1.1</version>
         </dependency>
 
 
