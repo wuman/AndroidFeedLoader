@@ -169,8 +169,36 @@
                             <platform>${android.platform}</platform>
                         </sdk>
                         <undeployBeforeDeploy>true</undeployBeforeDeploy>
+                        <sign>
+                            <debug>false</debug>
+                        </sign>
+                        <manifest>
+                            <versionCodeUpdateFromVersion>true</versionCodeUpdateFromVersion>
+                        </manifest>
+                        <zipalign>
+                            <verbose>true</verbose>
+                            <skip>false</skip>
+                            <inputApk>${project.build.directory}/${project.artifactId}-${project.version}.apk</inputApk>
+                            <outputApk>${project.build.directory}/${project.artifactId}-${project.version}-signed-aligned.apk</outputApk>
+                        </zipalign>
                     </configuration>
                     <extensions>true</extensions>
+                    <executions>
+                        <execution>
+                            <id>manifest-update</id>
+                            <phase>process-resources</phase>
+                            <goals>
+                                <goal>manifest-update</goal>
+                            </goals>
+                        </execution>
+                        <execution>
+                            <id>align-apk</id>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>zipalign</goal>
+                            </goals>
+                        </execution>
+                    </executions>
                 </plugin>
             </plugins>
         </pluginManagement>
